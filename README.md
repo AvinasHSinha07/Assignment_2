@@ -1,130 +1,60 @@
-🚗 Vehicle Rental System – Backend API
+# 🚗 Vehicle Rental System – Backend API
+**Live URL:** https://assignment-2-kappa-lime.vercel.app/
 
-Live URL: https://assignment-2-kappa-lime.vercel.app/
+## 📌 Overview
+A backend REST API built using **Node.js, TypeScript, Express.js, and PostgreSQL (Neon DB)**.  
+It provides user authentication, vehicle management, rental bookings, and secure role-based access.
 
-📌 Project Overview
+## 🛠️ Features
+- User Signup & Login (JWT Authentication)
+- Roles: Admin & Customer
+- Vehicle CRUD + Availability Tracking
+- Booking Creation, Cancellation & Return
+- Auto Price Calculation (daily rate × days)
+- Prevent deleting users/vehicles with active bookings
 
-The Vehicle Rental System is a backend REST API built using Node.js, TypeScript, and PostgreSQL (Neon DB).
-It provides complete functionality for:
+## 🧱 Tech Stack
+- Node.js + TypeScript  
+- Express.js  
+- PostgreSQL (Neon)  
+- JWT + bcrypt  
 
-User authentication (Admin & Customer)
+## 📂 Project Structure
 
-Managing vehicles
 
-Handling bookings
-
-Role-based access control
-
-Automatic booking return logic
-
-The project follows a clean modular architecture (Routes → Controllers → Services) for scalability and maintainability.
-
-🛠️ Features
-🔐 Authentication
-
-User signup & login
-
-Password hashing using bcrypt
-
-JWT-based authentication
-
-Role validation: admin, customer
-
-🚗 Vehicle Management
-
-Add, view, update, delete vehicles
-
-Prevent deletion if vehicle has active bookings
-
-Track availability (available, booked)
-
-👤 User Management
-
-Admin can update/delete any user
-
-Customers can update only their own profile
-
-Prevent deleting users with active bookings
-
-📅 Booking Management
-
-Create bookings with automatic total price calculation
-
-Auto-update vehicle availability
-
-Admin views all bookings
-
-Customers view only their own bookings
-
-Cancel bookings (customer)
-
-Mark as returned (admin)
-
-Automatic return for expired bookings
-
-🧱 Technology Stack
-Layer	Technology
-Runtime	Node.js
-Language	TypeScript
-Framework	Express.js
-Database	PostgreSQL (Neon)
-Authentication	JWT + bcrypt
-Architecture	Modular MVC pattern
-📂 Project Structure
 src/
- ├── config/
- ├── middleware/
- ├── modules/
- │     ├── auth/
- │     ├── users/
- │     ├── vehicles/
- │     └── bookings/
- ├── app.ts
- └── server.ts
+├── config/
+├── middleware/
+├── modules/ (auth, users, vehicles, bookings)
+├── app.ts
+└── server.ts
 
 
-Each module contains:
 
-*.routes.ts
+## ⚙️ Setup Instructions
+1. Install dependencies:
 
-*.controller.ts
-
-*.service.ts
-
-Ensuring clean separation of concerns.
-
-⚙️ Setup Instructions
-1️⃣ Clone the project
-git clone https://github.com/AvinasHSinha07/Assignment_2
-cd vehicle-rental-system
-
-2️⃣ Install dependencies
 npm install
 
-3️⃣ Create .env file
+2. Create `.env` file:
+
 PORT=5000
-CONNECTION_STR=your_neon_postgres_connection_string
+CONNECTION_STR=your_neon_db_connection_string
 JWT_SECRET=your_secret_key
 
-4️⃣ Start development server
+
+3. Start development server:
+
+
 npm run dev
 
 
-Server will run at:
+## 🚀 Usage
 
-http://localhost:5000
+Use Postman to test all API endpoints.
 
-🚀 Usage
 
-Use Postman to test API endpoints:
-Examples:
 
-POST /api/v1/auth/signup
 
-POST /api/v1/auth/signin
 
-GET /api/v1/vehicles
 
-POST /api/v1/bookings
-
-PUT /api/v1/bookings/:id
