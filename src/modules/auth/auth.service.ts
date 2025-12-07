@@ -64,7 +64,9 @@ const signinUser = async (payload: { email: string; password: string }) => {
       role: user.role,
     },
     config.jwtSecret as string,
-    { expiresIn: "1h" }
+    {
+      expiresIn: "7d",
+    }
   );
 
   const userResponse = {
